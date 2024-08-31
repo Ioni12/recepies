@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Fetcher</title>
+</head>
+<body>
+    <h1>Recipe Fetcher</h1>
+    <button onclick="cook()">Get Italian Wedding Soup Recipe</button>
+    <div id="recipe-result"></div>
+
+    <script>
+        async function cook() {
+            try {
+                const response = await fetch("https://api.api-ninjas.com/v1/recipe?query=italian wedding soup", {
+                    headers: {
+                        'X-Api-Key': 'coDfCEalUAEBtuYaOW89cg==xs7JdfTSsatHx0bd'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+                    displayRecipe(data);
+                } else {
+                    throw new Error('Failed to fetch recipe');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('recipe-result').textContent = 'Failed to fetch recipe. Please try again.';
+            }
+        }
+
+        function displayRecipe(recipeData) {
+            const resultDiv = document.getElementById('recipe-result');
+            resultDiv.innerHTML = '';
+
+            if (recipeData && recipeData.length > 0) {
+                const recipe = recipeData[0];
+                const recipeHtml = `
+                    <h2>${recipe.title}</h2>
+                    <p><strong>Ingredients:</strong></p>
+                    <ul>
+                        ${recipe.ingredients.split('|').map(ingredient => `<li>${ingredient.trim()}</li>`).join('')}
+                    </ul>
+                    <p><strong>Instructions:</strong></p>
+                    <p>${recipe.instructions}</p>
+                `;
+                resultDiv.innerHTML = recipeHtml;
+            } else {
+                resultDiv.textContent = 'No recipe found. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>

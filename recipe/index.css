@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bag{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bag img{
+    height: 100vh;
+    width: 100vw;
+}
+
+.cover{
+    height: 100vh;
+    width: 100vw;
+    z-index: 11;
+    background-color: rgba(57, 61, 65, 0.445);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.inpt_con{
+    z-index: 12;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.inpt_con input{
+    height: 6vh;
+    width: 20vw;
+    padding: 2%;
+    border-radius: 12px;
+    border: 2px solid white
+}
+
+.inpt_con button{
+    margin-top: 10%;
+    height: 6vh;
+    width: 10vw;
+    margin-left: 24%;
+    background-color: red;
+    border-radius: 12px;
+    border: 2px solid rgb(212, 85, 85);
+    color: white
+}
+
+.rec_con{
+    display: none;
+    height: 90vh;
+    width: 70vw;
+    background-color: rgba(63, 55, 58, 0.911);
+    z-index: 13;
+    position: relative;
+    margin-top: 5%;
+    left: 15%;
+
+        /* From https://css.glass */
+    background: rgba(37, 27, 32, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.img{
+    height: 50vh;
+    width: 30vw;
+    background-color: antiquewhite;
+    margin: 3%;
+}
+
+.img img{
+    height: 100%;
+    width: 100%;
+}
